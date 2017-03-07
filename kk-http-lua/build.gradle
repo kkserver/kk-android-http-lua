@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'kk:core:0.0.9@aar'
+    compile 'kk:lua:0.0.7@aar'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+}
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = "kk"
+            pom.artifactId = "http-lua"
+            pom.version = "0.0.1"
+            repository(url: RELEASE_REPOSITORY_URL) {
+
+            }
+        }
+    }
+}
+
