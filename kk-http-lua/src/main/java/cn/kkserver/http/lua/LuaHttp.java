@@ -379,6 +379,8 @@ public class LuaHttp implements IGetter {
 
                         }
 
+                        Log.d(TAG,url);
+
                     } else {
 
                         StringBuilder sb = new StringBuilder();
@@ -431,11 +433,11 @@ public class LuaHttp implements IGetter {
                         luaState.pop(1);
 
                         build.url(sb.toString());
+
+                        Log.d(TAG,sb.toString());
                     }
 
                     luaState.pop(1);
-
-                    Log.d(TAG,build.toString());
 
                     Call call = client.newCall(build.build());
 
