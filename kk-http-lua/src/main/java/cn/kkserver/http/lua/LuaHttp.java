@@ -339,7 +339,7 @@ public class LuaHttp implements IGetter {
 
                         if("application/x-www-form-urlencoded".equals(contentType)) {
 
-                            luaState.pushstring("body");
+                            luaState.pushstring("data");
                             luaState.rawget(-2);
 
                             if(luaState.type(-1) == LuaState.LUA_TTABLE) {
@@ -367,7 +367,7 @@ public class LuaHttp implements IGetter {
 
                         } else {
 
-                            luaState.pushstring("body");
+                            luaState.pushstring("data");
                             luaState.rawget(-2);
 
                             if(luaState.type(-1) == LuaState.LUA_TSTRING) {
@@ -398,7 +398,7 @@ public class LuaHttp implements IGetter {
                             }
                         }
 
-                        luaState.pushstring("body");
+                        luaState.pushstring("data");
                         luaState.rawget(-2);
 
                         if(luaState.type(-1) == LuaState.LUA_TTABLE) {
