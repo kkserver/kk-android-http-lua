@@ -32,6 +32,7 @@ import okhttp3.Response;
 
 public class LuaHttp implements IGetter {
 
+    public final static String TAG = "kk";
     private final static int BUFFER_SIZE = 204800;
 
     private final OkHttpClient _client ;
@@ -433,6 +434,8 @@ public class LuaHttp implements IGetter {
                     }
 
                     luaState.pop(1);
+
+                    Log.d(TAG,build.toString());
 
                     Call call = client.newCall(build.build());
 
